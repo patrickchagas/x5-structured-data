@@ -17,9 +17,9 @@ const getAvailableQuantity = pathOr(0, ['commertialOffer', 'AvailableQuantity'])
 const getFinalPrice = (value, getPriceFunc, { decimals, pricesWithTax }) => {
   return pricesWithTax
     ? Math.round(
-        (getPriceFunc(value) + getTax(value) + Number.EPSILON) * 10 ** decimals
-      ) /
-        10 ** decimals
+      (getPriceFunc(value) + getTax(value) + Number.EPSILON) * 10 ** decimals
+    ) /
+    10 ** decimals
     : getPriceFunc(value)
 }
 
@@ -103,8 +103,8 @@ const parseSKUToOffer = (
 
   const offer = {
     '@type': 'Offer',
-    price,
-    priceCurrency: currency,
+    // price,
+    // priceCurrency: currency,
     availability,
     sku: offerSku,
     itemCondition: 'http://schema.org/NewCondition',
@@ -167,9 +167,9 @@ const composeAggregateOffer = (
 
   const aggregateOffer = {
     '@type': 'AggregateOffer',
-    lowPrice: getFinalPrice(low, getSpotPrice, { decimals, pricesWithTax }),
-    highPrice: getFinalPrice(high, getPrice, { decimals, pricesWithTax }),
-    priceCurrency: currency,
+    // lowPrice: getFinalPrice(low, getSpotPrice, { decimals, pricesWithTax }),
+    // highPrice: getFinalPrice(high, getPrice, { decimals, pricesWithTax }),
+    // priceCurrency: currency,
     offers: offersList,
     offerCount: items.length,
   }
