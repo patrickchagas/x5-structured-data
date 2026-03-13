@@ -1,0 +1,93 @@
+{
+  "vendor": "x5company",
+  "name": "structured-data",
+  "version": "0.17.0",
+  "title": "Structured data",
+  "description": "Structured data",
+  "defaultLocale": "pt-BR",
+  "builders": {
+    "react": "3.x",
+    "docs": "0.x",
+    "messages": "1.x"
+  },
+  "mustUpdateAt": "2019-08-29",
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.render-runtime": "8.x",
+    "vtex.apps-graphql": "3.x"
+  },
+  "settingsSchema": {
+    "title": "Structured data",
+    "type": "object",
+    "access": "public",
+    "properties": {
+      "disableProductStructuredData": {
+        "title": "Disable Structured Data in PDP",
+        "type": "boolean",
+        "default": false,
+        "description": "Disable structured data in Product Details Page"
+      },
+      "disableOffers": {
+        "title": "Disable Offers",
+        "type": "boolean",
+        "default": false,
+        "description": "Disable product offers"
+      },
+      "decimals": {
+        "title": "Number of decimals",
+        "type": "number",
+        "default": 2,
+        "description": "Set the number of decimals you want the prices to show"
+      },
+      "pricesWithTax": {
+        "title": "Prices with tax",
+        "type": "boolean",
+        "default": false,
+        "description": "Add tax to the price shown on Google"
+      },
+      "useSellerDefault": {
+        "title": "Use seller default",
+        "type": "boolean",
+        "default": false,
+        "description": "Use seller default price in AggregateOffer"
+      },
+      "useImagesArray": {
+        "title": "Use images array",
+        "type": "boolean",
+        "default": false,
+        "description": "Use images array for product instead of single one"
+      },
+      "disableAggregateOffer": {
+        "title": "Disable aggregate offer",
+        "type": "boolean",
+        "default": false,
+        "description": "Use single Offer insteand of AggregateOffer"
+      },
+      "gtinValue": {
+        "title": "GTIN Value",
+        "type": "string",
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "ean"
+            ],
+            "title": "EAN"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "itemId"
+            ],
+            "title": "SKU ID"
+          }
+        ],
+        "default": "ean",
+        "description": "Set the value used for GTIN"
+      }
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
